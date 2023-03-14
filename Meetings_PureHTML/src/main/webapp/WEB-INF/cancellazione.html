@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CANCELLAZIONE</title>
+</head>
+<body>
+
+	<p th:if="${session.error == 'tooManyUsers'}">Tre tentativi di definire una riunione con troppi partecipanti, la riunione non sarà creata</p>
+	<p th:if="${session.error == 'meetingAlreadyExists'}">Questo meeting esiste già!</p>
+	<a th:href="@{/GoToHomePage}">Home Page</a>
+
+</body>
+</html>

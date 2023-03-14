@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Register page</title>
+</head>
+<body>
+	<div align="right">
+		<a th:href="@{/SwitchToLoginPage}">Torna alla pagina di login</a>
+	</div>
+	
+	<hr>
+	
+	<div>
+		<h3>Inserisci i tuoi dati per creare un nuovo account</h3>
+		<form method="POST" th:action="@{/Register}">
+			<br>
+			<div>
+				<label for="name">Username</label>
+				<input type="text" placeholder="Enter your username" name="username" required>
+			</div>
+			<br>
+			<div>
+				<label for="name">Email</label>
+				<input type="email" placeholder="Enter your email" name="email" required>
+			</div>
+			<br>
+			<div>
+				<label for="password">Password</label>
+				<input type="password" placeholder="Enter your password" name="password" required><br>
+			</div>
+			<br>
+			<div>
+				<label for="password">Password</label>
+				<input type="password" placeholder="Repeat password" name="password2" required><br>
+			</div>
+			<br>
+			<button type="submit">Registrati</button>
+		</form>
+		<div>
+			<p th:text=" ${errorMsg}"></p>
+		</div>
+	</div>
+	
+	<hr>
+</body>
+</html>

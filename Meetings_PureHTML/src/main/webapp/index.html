@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+</head>
+<body>
+	<h1>Welcome to MEETINGS!</h1>
+
+	<form action="Login" method="POST">
+		Username: <input type="text" name="username" required> <br> <br>
+		Password: <input type="password" name="pwd" required> <br> <br>
+		<input type="submit" value="Login">
+		<p th:text=" ${errorMsg}"></p>
+	</form>
+	
+	<hr>
+	
+	<div>
+		<p>Non sei ancora registrato?</p>
+		<form action="SwitchToRegisterPage">
+			<input type="submit" value="Registrati!">
+		</form>
+	</div>
+</body>
+</html>

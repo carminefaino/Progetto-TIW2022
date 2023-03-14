@@ -1,0 +1,13 @@
+#buttons {
+	display:inline-block;
+}
+
+th, td {
+  text-align:center;
+  padding: 6px;
+}
+
+table {
+  border-collapse:collapse;
+  border: 0.1px solid;
+}

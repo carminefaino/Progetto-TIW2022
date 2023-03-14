@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Anagrafica</title>
+</head>
+<body>
+
+	<div>
+		<p>Users:</p>
+		<form action="#" th:action="@{/CreateNewMeeting}" method="POST" >
+			
+			<div th:each="u : ${users}">
+				<input type="checkbox" name="users" th:value="${u.username}" th:if="${usersChecked.contains(u)}" checked/>
+    			<label th:text="${u.username}" th:if="${usersChecked.contains(u)}"></label>
+    			<input type="checkbox" name="users" th:value="${u.username}" th:unless="${usersChecked.contains(u)}"/>
+    			<label th:text="${u.username}" th:unless="${usersChecked.contains(u)}"></label>
+			</div><br>
+			
+			<input type="submit" name="Create Meeting">
+			<p th:text=" ${errorMsg}"></p>
+		</form>
+	</div><br>
+	
+	<a th:href="@{/GoToHomePage}">Home Page</a>
+	
+</body>
+</html>

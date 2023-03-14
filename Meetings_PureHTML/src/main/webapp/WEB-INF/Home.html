@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/home.css"/>
+<title>Meetings</title>
+</head>
+<body>
+
+	<div align="right">
+		<a th:href="@{/Logout}">Logout</a>
+	</div>
+
+	<h1 th:text="${'Benvenuto in Meetings ' + session.user.username}"></h1>
+	
+	<h3>Meetings creati da te</h3>	
+	<div th:if="${myMeetings.size() > 0}">
+		<table>
+			<thead>
+				<tr>
+					<th>Titolo</th>
+					<th>Data</th>
+					<th>Ora</th>
+					<th>Durata</th>
+					<th>Massimo numero di partecipanti</th>
+					<th>Creato da</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="m : ${myMeetings}">
+					<td th:text="${m.title}"></td>
+					<td th:text="${m.date}"></td>
+					<td th:text="${m.time}"></td>
+					<td th:text="${m.duration}"></td>
+					<td th:text="${m.maxNumberOfParticipants}"></td>
+					<td th:text="${m.createdBy}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>  
+	<div th:if="${myMeetings.size() == 0}"> Non hai creato alcun meeting!</div>
+	
+	<br><hr><br>
+	
+	<h3>Meetings ai quali sei stato invitato</h3>
+	<div th:if="${otherMeetings.size() > 0}">
+		<table>
+			<thead>
+				<tr>
+					<th>Titolo</th>
+					<th>Data</th>
+					<th>Ora</th>
+					<th>Durata</th>
+					<th>Massimo numero di partecipanti</th>
+					<th>Creato da</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="m : ${otherMeetings}">
+					<td th:text="${m.title}"></td>
+					<td th:text="${m.date}"></td>
+					<td th:text="${m.time}"></td>
+					<td th:text="${m.duration}"></td>
+					<td th:text="${m.maxNumberOfParticipants}"></td>
+					<td th:text="${m.createdBy}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>  
+	<div th:if="${otherMeetings.size() == 0}"> Non sei stato invitato ad alcun meeting!</div>
+	
+	<br><hr><br>
+	
+	<div>
+		<h3>Complete the form to create a new meeting</h3>
+		<form action="#" th:action="@{/SaveMeetingInSession}" method="POST">
+			<fieldset>
+				<p>
+					Titolo: <input type="text" name="title" required />
+				</p>
+				<p>
+					Data: <input type="date" name="date"
+						th:attr="min=${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"
+						placeholder="yyyy-mm-dd" required />
+				</p>
+				<p>
+					Ora: <input type="time" name="time"
+						placeholder="hh:mm" required />
+				</p>
+				<p>
+					Durata (in minuti): <input type="number" name="duration" min=0 required />
+				</p>
+				<p>
+					Massimo numero di partecipanti: <input type="number" name="maxNumberOfParticipants" min=2 required />
+				</p>
+				<input type="submit" name="Create Meeting">
+			</fieldset>
+		</form>
+		<p th:text=" ${errorMsgCreateMeeting}"></p>
+	</div>
+		
+</body>
+</html>

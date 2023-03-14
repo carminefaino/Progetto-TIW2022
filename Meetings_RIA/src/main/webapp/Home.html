@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Meetings!</title>
+<link rel="stylesheet" type="text/css" href="css/modal.css"/>
+<link rel="stylesheet" type="text/css" href="css/home.css"/>
+<script src="js/utils.js" charset="utf-8" defer></script>
+<script src="js/home.js" charset="utf-8" defer></script>
+<script src="js/jquery.js"></script> 
+</head>
+<body>
+
+	<header>
+        <div align="right">
+        <a href="Logout">Logout</a>
+        </div>
+    </header>
+    
+    <h1>Benvenuto in Meetings <span id="username_user"></span></h1>
+
+	<div>
+		<h3>Meetings creati da te</h3>
+		<div id="alertMyMeetings"></div>
+		<table id="myMeetingsContainer">
+            <tr>
+            <td>
+            <thead>
+            <tr>
+            <th>Titolo</th>
+            <th>Data</th>
+            <th>Ora</th>
+            <th>Durata</th>
+            <th>Massimo numero di partecipanti</th>
+            <th>Creato da</th>
+            </tr>
+            </thead>
+            <tbody id="myMeetingsBody">
+            </tbody>
+        </table>
+        
+        <hr>
+        
+        <h3>Meetings ai quali sei stato invitato</h3>
+        <div id="alertOtherMeetings"></div>
+		<table id="otherMeetingsContainer">
+            <tr>
+            <td>
+            <thead>
+            <tr>
+            <th>Titolo</th>
+            <th>Data</th>
+            <th>Ora</th>
+            <th>Durata</th>
+            <th>Massimo numero di partecipanti</th>
+            <th>Creato da</th>
+            </tr>
+            </thead>
+            <tbody id="otherMeetingsBody">
+            </tbody>
+        </table>
+        
+        <hr>
+	</div>
+	
+	<div>
+		<h3>Completa il form per creare un nuovo meeting</h3>
+		<form id="createmeetingform" action="#">
+			<fieldset>
+				<p>
+					Titolo: <input type="text" name="title" required />
+				</p>
+				<p>
+					Data: <input type="date" name="date" required />
+				</p>
+				<p>
+					Ora: <input type="time" name="time" placeholder="hh:mm" required />
+				</p>
+				<p>
+					Durata (in minuti): <input type="number" name="duration" min=1 required />
+				</p>
+				<p>
+					Massimo numero di partecipanti: <input type="number" name="maxNumberOfParticipants" id="maxNumberOfParticipants" min=2 required />
+				</p>
+				<input id="anagrafica_button" type="button" value="Invita" class="buttons">
+				<input type="reset" value="Cancella" class="buttons">
+			</fieldset>
+		</form><br>
+		<div id="alertForm"></div>
+	</div>
+	
+	<div id="modal" class="modal">
+         <div class="modal_wrap">
+            <span class="modal_close">×</span>
+            <h2>Seleziona gli utenti da invitare</h2>
+            <div id="div_users"></div>
+            <div id = "alertUsers"></div><br>
+            <input id="createMeeting_button" type="button" value="Invia" class="buttons">
+            <input id="deleteMeeting_button" type="reset" value="Cancella" class="buttons">
+         </div>
+      </div> 
+      
+</body>
+</html>

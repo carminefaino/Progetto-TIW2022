@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+<script src="js/utils.js" charset="utf-8" defer></script>
+<script src="js/loginManagement.js" charset="utf-8" defer></script>
+
+</head>
+<body>
+	<h1>Welcome to MEETINGS!</h1>
+	
+	<div>
+		<form action="#">
+		<fieldset>
+			Username: <input type="text" name="username" required><br><br>
+			Password: <input type="password" name="pwd" required><br><br>
+			<input id="loginbutton" type="button" value="Login"><br>
+			<p id="errormessage"></p>
+		</fieldset></form><br>
+		<p>Non sei registrato: <a id="open_register_div" href="#">Registrati!</a></p>
+	</div><br>
+
+	<div id="register-div" style = "display : none">
+		<form action="#">
+		<fieldset>
+			Username: <input type="text" name="username" required><br><br>
+			Email: <input type="text" name="email" required><br><br>
+			Password: <input type="password" name="password" required><br><br>
+			Ripeti password: <input type="password" name="password2" required><br><br>
+			<input id="registerbutton" type="button" value="Registrati!"><br>
+			<p id="errormessage2"></p>
+		</fieldset></form><br>
+	</div>
+	
+</body>
+</html>
