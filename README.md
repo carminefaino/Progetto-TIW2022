@@ -1,4 +1,4 @@
-# Progetto-TIW2022
+# Progetto TIW 2022
 ### Prova finale di Tecnologie Informatiche per il Web
 
 ## Languages
